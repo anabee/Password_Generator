@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Generator</title>
+</head>
+
+<body>
+
+    <script>
+
+        function init() {
+             collectData();
+             desiredCharacters();
+             generatePassword();
+        }
+
+        var desiredLength = prompt("How long do you want your password to be? (8-128 characters)");
+            var intLength = parseInt(desiredLength);
+            
+            var wantSpecialCharacters = confirm("Do you want special characters");
+            var wantNumbers = confirm("Do you want numbers");
+            var wantLowerCase = confirm("Do you want lower case");
+            var wantUpperCase = confirm("Do you want upper case");
+
+            var specialCharChoices = ["!", "#", "$", "%", "&", "@"];
+        var numberChoices = ["0","1","2","3","4","5","6","7","8","9"];
+        var lowerCaseChoices = ["a","b","c","d","e"];
+        var UpperCaseChoices = ["A","B","C","D","E"];
+
+        var allCharUsed = specialCharChoices.concat(numberChoices, numberChoices, lowerCaseChoices, UpperCaseChoices);
+
+        var usedSpNum = specialCharChoices.concat(numberChoices);
+        var usedNumLow = numberChoices.concat(lowerCaseChoices);
+        var usedLowUpp = lowerCaseChoices.concat(UpperCaseChoices);
+        var usedSpLow = specialCharChoices.concat(lowerCaseChoices);
+        var usedNumUpp = numberChoices.concat(UpperCaseChoices);
+        var usedSpUpp = specialCharChoices.concat(UpperCaseChoices);
+
+        var usedSpNumLow = specialCharChoices.concat(numberChoices,lowerCaseChoices);
+        var usedNumLowUpp = numberChoices.concat(lowerCaseChoices,UpperCaseChoices);
+        var usedSpLowUpp = specialCharChoices.concat(lowerCaseChoices,UpperCaseChoices);
+        var usedSpNumUpp = specialCharChoices.concat(numberChoices,UpperCaseChoices)
+
+        var x = [];
+
+
+        function collectData(){
+
+        if(wantSpecialCharacters === false && wantNumbers === false && wantLowerCase === false && wantUpperCase === false){
+            alert("You must select at least one character type.")
+            collectData()
+        } else {
+            console.log("Thanks")
+            } 
+        }
+
+// -------------------------------------
+        function desiredCharacters(){
+
+        // first four where only one choice is true 
+        if (wantSpecialCharacters === true && wantNumbers === false && wantLowerCase === false && wantUpperCase === false ) {
+             x += specialCharChoices;
+        } else if (wantSpecialCharacters === false && wantNumbers === true && wantLowerCase === false && wantUpperCase === false){
+            x += numberChoices;
+        } else if (wantSpecialCharacters === false && wantNumbers === false && wantLowerCase === true && wantUpperCase === false){
+            x += lowerCaseChoices;
+        } else if (wantSpecialCharacters === false && wantNumbers === false && wantLowerCase === false && wantUpperCase === true){
+            x += UpperCaseChoices;
+
+        // when all are true 
+        } else if (wantSpecialCharacters === true && wantNumbers === true && wantLowerCase === true && wantUpperCase === true){
+            x += allCharUsed;
+
+        // where a combination of two is true
+        } else if (wantSpecialCharacters === true && wantNumbers === true && wantLowerCase === false && wantUpperCase === false){
+            x += usedSpNum;
+        } else if (wantSpecialCharacters === false && wantNumbers === true && wantLowerCase === true && wantUpperCase === false){
+            x += usedNumLow;
+        } else if (wantSpecialCharacters === false && wantNumbers === false && wantLowerCase === true && wantUpperCase === true){
+            x += usedLowUpp;
+        } else if (wantSpecialCharacters === true && wantNumbers === false && wantLowerCase === true && wantUpperCase === false){
+            x += usedSpLow;
+        } else if (wantSpecialCharacters === false && wantNumbers === true && wantLowerCase === false && wantUpperCase === true){
+            x += usedNumUpp;
+        } else if (wantSpecialCharacters === true && wantNumbers === false && wantLowerCase === false && wantUpperCase === true){
+            x += usedSpUpp;
+
+        // when a combination of 3 is true 
+        } else if (wantSpecialCharacters === true && wantNumbers === true && wantLowerCase === true && wantUpperCase === false){
+            x += usedSpNumLow;
+        } else if (wantSpecialCharacters === false && wantNumbers === true && wantLowerCase === true && wantUpperCase === true){
+            x += usedNumLowUpp;
+        } else if (wantSpecialCharacters === true && wantNumbers === false && wantLowerCase === true && wantUpperCase === true){
+            x += usedSpLowUpp;
+        } else if (wantSpecialCharacters === true && wantNumbers === true && wantLowerCase === false && wantUpperCase === true){
+            x += usedSpNumUpp;}
+            
+        }
+
+// -------------------------------------------        
+
+        function generatePassword (){
+
+            var randPassword = "";
+
+            function randomPassword() {
+
+            for (var i = 0; i < intLength; i++) {
+
+            var randomCharc = x[Math.floor(Math.random() * x.length)];
+            randPassword += randomCharc;
+            console.log(randPassword);
+            }
+        }
+        randomPassword();
+        }
+
+
+        init()
+
+
+    </script>
+
+</body>
+
+</html>
