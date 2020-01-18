@@ -24,7 +24,6 @@ function init() {
 
 }
 
-
 function collectData(){
 
    var desiredLength = prompt("How long do you want your password to be? (8-128 characters)");
@@ -37,8 +36,8 @@ function collectData(){
 
    specialCharChoices = specialCharChoices = [`!#$%&@`];
    numberChoices = [`0123456789`];
-   lowerCaseChoices = [`abcde`];
-   UpperCaseChoices = [`ABCDE`];
+   lowerCaseChoices = [`abcdefghijklmnopqrstuvwxyz`];
+   UpperCaseChoices = [`ABCDEFGHIJKLMNOPQRSTUVWXYZ`];
 
    allCharUsed = specialCharChoices.concat(numberChoices, lowerCaseChoices, UpperCaseChoices);
 
@@ -63,7 +62,6 @@ if(wantSpecialCharacters === false && wantNumbers === false && wantLowerCase ===
    console.log("Thanks")
    } 
 
-// -------------------------------------
 
 // first four where only one choice is true 
 if (wantSpecialCharacters === true && wantNumbers === false && wantLowerCase === false && wantUpperCase === false ) {
@@ -129,7 +127,6 @@ return randPassword;
 
 }
 
-// init()
 
 function rendor(finalpassword){
 
