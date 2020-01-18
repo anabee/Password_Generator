@@ -1,3 +1,5 @@
+var intLength
+
 var specialCharChoices
 var numberChoices
 var lowerCaseChoices
@@ -27,7 +29,7 @@ function init() {
 function collectData(){
 
    var desiredLength = prompt("How long do you want your password to be? (8-128 characters)");
-   var intLength = parseInt(desiredLength);
+   intLength = Number(desiredLength);
    
    var wantSpecialCharacters = confirm("Do you want special characters");
    var wantNumbers = confirm("Do you want numbers");
@@ -114,7 +116,7 @@ function generatePassword (){
 
    function randomPassword() {
 console.log("inside random pass")
-   for (var i = 0; i < 128; i++) {
+   for (var i = 0; i < intLength; i++) {
 
    var randomCharc = x[Math.floor(Math.random() * x.length)];
    randPassword += randomCharc;
