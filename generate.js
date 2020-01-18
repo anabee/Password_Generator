@@ -143,4 +143,14 @@ var genbutton = document.getElementById("generatorbutton");
 
 console.log(genbutton);
 genbutton.onclick = function () {init()}
-// console.log()
+
+var copyNewPasswordBtn = document.querySelector(".copybutton");
+
+copyNewPasswordBtn.addEventListener("click", function(event){
+   var passwordArea = document.querySelector(".passwordtocopy");
+   passwordArea.focus();
+   passwordArea.select();
+
+   var works = document.execCommand('copy');
+});
+
