@@ -114,7 +114,7 @@ function generatePassword (){
 
    function randomPassword() {
 console.log("inside random pass")
-   for (var i = 0; i < 9; i++) {
+   for (var i = 0; i < 128; i++) {
 
    var randomCharc = x[Math.floor(Math.random() * x.length)];
    randPassword += randomCharc;
