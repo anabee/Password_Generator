@@ -13,3 +13,7 @@ Once the random password is generated it is the printed onto the input field on 
 The function init is ran by selecting the "generate password" button. We then gave it onclick properties. 
 
 Finally there was a "copy to clipboard" button added. This button first focuses on the action you want to take and then selects it using .focus() and .select(). Once those items are executed, I used execCommand('copy') in order to copy the generated password onto my clipboard.
+
+<img width="939" alt="password_gen" src="https://user-images.githubusercontent.com/42880531/76157575-5fc53080-60bf-11ea-858d-a6cd4a8000a0.png">
+
+https://anabee.github.io/Password_Generator/
